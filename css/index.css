@@ -1,0 +1,36 @@
+body{
+    margin: 20px;
+    text-align: center;
+}
+
+.title{
+    background-color: green;
+}
+
+#boxContainer{
+    display: flex;
+}
+
+.box{
+    background-color: blue;
+    height: 200px;
+    margin: 10px;
+}
+
+.row{
+    margin-bottom: 5px;
+}
+
+#mainContent{
+    background-color: skyblue;
+    height: 400px;
+    margin-bottom: 15px;
+}
+
+.btn-warning{
+    margin-top: 15px;
+}
+
+div {
+    border-radius: 25px;
+}
