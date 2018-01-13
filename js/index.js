@@ -35,15 +35,6 @@ for(var i = 0; i < 2; i++){
     });
 }
 
-// function createImage(){
-
-//     var imgTag = document.createElement("img");
-//     var container = document.getElementsByClassName("box")[0].children[0];
-//     container.appendChild(imgTag);
-//     imgTag.id = "img";
-//     alert("upo");
-// }
-
 function startRoll(rollButton){
 
     if(timeToChangeTurns)
@@ -82,29 +73,10 @@ function stopRoll(stopButton){
 
     var randNum = Math.floor((Math.random() * 6) + 1);
     
-    //the commented out code below can be uncommented and used to automatically make player 1
-    //win the game. This can be useful for testing and debugging.
-    // randNum = 6;
-
-    // switch(counter){
-    //     case 1:
-    //         randNum = 1;
-    //         break;
-    //     case 2:
-    //         randNum = 2;
-    //         break;
-    //     case 3:
-    //         randNum = 3;
-    //         break;
-    //     case 4:
-    //         randNum = 4;
-    //         break;
-    //     case 5:
-    //         randNum = 5;
-    // }
-
-    // counter++;
-    
+    //the function below named 'playerOneWinAuto' can be used to automatically make player 1
+    //win the game. To accomplish this, simply set the first parameter to true.
+    //This can be useful for testing and debugging.
+    randNum = playerOneWinAuto(false, randNum);
 
     var bodyPart = "";
     
@@ -359,4 +331,33 @@ function changePlayer(){
         player = 0;
         whosTurn.innerHTML = "Player 1's turn";
     }
+}
+
+function playerOneWinAuto(bool, randNum){
+
+    if(bool){
+
+        randNum = 6;
+
+        switch(counter){
+            case 1:
+                randNum = 1;
+                break;
+            case 2:
+                randNum = 2;
+                break;
+            case 3:
+                randNum = 3;
+                break;
+            case 4:
+                randNum = 4;
+                break;
+            case 5:
+                randNum = 5;
+        }
+
+        counter++;
+    }
+
+    return randNum;
 }
