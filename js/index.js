@@ -7,6 +7,7 @@ var timeToChangeTurns = true;
 var randNum = 0;
 var counter = 0;
 var flag = false;
+var missTurn = false;
 
 var arrayOfBodyPArts = ["tail", "ears", "eyes", "whiskers", "nose"];
 
@@ -71,7 +72,6 @@ function stopRoll(stopButton){
     
     //temp
     rollButton = stopButton.parentElement.parentElement.children[0].children[0];
-    
     rollButton.disabled = false;
     stopButton.disabled = true;
 
@@ -116,7 +116,9 @@ function stopRoll(stopButton){
 
             if(playerStats[player].one == "true"){
 
+                //document.getElementsByClassName("box")[1].innerHTML = "";
                 createDivsInBoxes(1, "You have already drawn a " + bodyPart + ". Miss your turn.");
+                missTurn = true;
             }
             else if(playerStats[player].bodySelected == "true"){
 
@@ -133,6 +135,7 @@ function stopRoll(stopButton){
             if(playerStats[player].two == "true"){
 
                 createDivsInBoxes(1, "You have already drawn " + bodyPart + ". Miss your turn.");
+                missTurn = true;
             }
             else if(playerStats[player].bodySelected == "true"){
 
@@ -149,6 +152,7 @@ function stopRoll(stopButton){
             if(playerStats[player].three == "true"){
 
                 createDivsInBoxes(1, "You have already drawn " + bodyPart + ". Miss your turn.");
+                missTurn = true;
             }
             else if(playerStats[player].bodySelected == "true"){
 
@@ -165,6 +169,7 @@ function stopRoll(stopButton){
             if(playerStats[player].four == "true"){
 
                 createDivsInBoxes(1, "You have already drawn " + bodyPart + ". Miss your turn.");
+                missTurn = true;
             }
             else if(playerStats[player].bodySelected == "true"){
 
@@ -181,6 +186,7 @@ function stopRoll(stopButton){
             if(playerStats[player].five == "true"){
 
                 createDivsInBoxes(1, "You have already drawn a " + bodyPart + ". Miss your turn.");
+                missTurn = true;
             }
             else if(playerStats[player].bodySelected == "true"){
 
@@ -197,6 +203,7 @@ function stopRoll(stopButton){
             if(playerStats[player].bodySelected == "true"){
 
                 createDivsInBoxes(1, "You have already drawn a " + bodyPart + ". Miss your turn.");
+                missTurn = true;
             }
             else{
 
@@ -248,8 +255,6 @@ function stopRoll(stopButton){
                     location.reload();
                 }
                 
-
-
                 playerStats[player].gameWon = true;
                 flag = true;
 
@@ -269,13 +274,15 @@ function stopRoll(stopButton){
                 x.appendChild(playAgainBtn);
 
         } 
-        else{
+        else if(!missTurn){
 
             for(var i = 0; i < playerStats[player].msg.length; i++)
                 message = message + playerStats[player].msg[i] + "<br>";
 
             createDivsInBoxes(1, message);
         }
+
+        missTurn = false;
     }
     else{
 
