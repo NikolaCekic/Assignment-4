@@ -13,13 +13,13 @@
     <link rel="stylesheet" href="css/index.css">
 
     <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
 
     <script>
         
         $("document").ready(function(){
 
-            //createImage();
             // localStorage.setItem("player", "1"); 
             var player1 = localStorage.getItem("player1");
             var player2 = localStorage.getItem("player2");
@@ -102,7 +102,44 @@
         </div>
 
         <div>
-            <button class="btn btn-warning">Instructions</button>
+            <!-- <button onclick="instructions();" class="btn btn-warning">Instructions</button> -->
+
+            <!-- the code in the container below is a slightly modified bootstrap modal -->
+            <div class="container">
+
+                <div class="row">
+                    <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#basicModal">Instructions</a>
+                </div>
+
+                <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h2 class="modal-title" id="myModalLabel">Instructions</h2>
+                            </div>
+                            <div class="modal-body">
+                                <!-- <h3>Modal Body</h3> -->
+                                <p>The aim of the game is to be the first to complete a Mouse. Each roll of the die enables a particular body part to be drawn as follows:</p>
+
+                                        <p>6 = body</p>
+                                        <p>5 = nose</p>
+                                        <p>4 = whiskers</p>
+                                        <p>3 = eyes</p>
+                                        <p>2 - ears</p>
+                                        <p>1 = tail</p>
+                                        
+                                <p>The body must be drawn before the other body parts are added to it, so players must therefore roll a 6 to start. Once the body has been drawn, the other parts of the mouse may be added in any order. If you roll a number which relates to a part you have already added, you miss your go and pass the die on.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
         
     </div>
