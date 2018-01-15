@@ -333,6 +333,7 @@ function changePlayer(){
     }
 }
 
+//this function was created to allow for a quick win to test and debug 
 function playerOneWinAuto(bool, randNum){
 
     if(bool){
